@@ -93,7 +93,7 @@ class DeleteFile
 }
 class UpdateLine
 {
-    public void update(String filename)
+    public void update(String filename,String new_text)
     {
         try
         {
@@ -110,8 +110,6 @@ class UpdateLine
             int index=s.nextInt();
             if(index<text.size())
             {
-                System.out.println("Enter the new text to be updated");
-                String new_text=sc.nextLine();
                 text.set(index,new_text);
                 StringBuilder str= new StringBuilder();
                 for(String i:text)
@@ -160,10 +158,13 @@ public class Main
                     r.read(rfile);
                     break;
                 case 3:
+                    Scanner s=new Scanner(System.in);
+                    System.out.println("Enter the new text to be updated");
+                    String new_text=s.nextLine();
                     UpdateLine u=new UpdateLine();
                     System.out.println("Enter filename");
                     String ufile=sc.next();
-                    u.update(ufile);
+                    u.update(ufile,new_text);
                     break;
                 case 4:
                     System.out.println("Enter filename");
